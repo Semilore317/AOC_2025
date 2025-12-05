@@ -52,7 +52,32 @@ public class Cafetaria {
 //    }
 
     public static BigInteger getFreshIngredients(List<BigInteger[]> freshIngredientsRange) {
-        
+        BigInteger freshIngredients = BigInteger.ZERO;
+        freshIngredientsRange.sort((a, b) -> a[0].compareTo(b[0]));
+
+        BigInteger[] firstRange = freshIngredientsRange.getFirst();
+        BigInteger currentStart   = firstRange[0];
+        BigInteger currentEnd = firstRange[1];
+
+        // loop starting from the SECOND element
+        for (int i = 1; i < freshIngredientsRange.size(); i++) {
+            BigInteger[] range = freshIngredientsRange.get(i);
+            BigInteger nextStart = range[0];
+            BigInteger nextEnd = range[1];
+
+            if (nextStart.compareTo(currentEnd) <= 0) {
+                currentEnd = currentEnd.max(nextEnd);
+            } else {
+                freshIngredients = freshIngredients.add(currentEnd.subtract(currentStart).add(BigInteger.ONE));
+
+                currentStart = nextStart;
+                currentEnd = nextEnd;
+            }
+        }
+
+        freshIngredients = freshIngredients.add(currentEnd.subtract(currentStart).add(BigInteger.ONE));
+
+        return freshIngredients;
     }
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("src/Day_5/input.txt");
