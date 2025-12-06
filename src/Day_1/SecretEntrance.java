@@ -70,7 +70,7 @@ public class SecretEntrance {
         return password;
     }
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("C:/Users/user/Documents/AOC_2025/src/Day_1/input.txt");
+        File file = new File("src/Day_1/input.txt");
         Scanner scanner = new Scanner(file);
         List<String> list = new ArrayList<>();
 

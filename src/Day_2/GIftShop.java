@@ -50,7 +50,7 @@ public class GIftShop {
         return sumOfInvalidIds;
     }
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("C:\\Users\\user\\Documents\\AOC_2025\\src\\Day_2\\input.txt");
+        File file = new File("src\\Day_2\\input.txt");
         Scanner scanner = new Scanner(file);
 
         // find the indices of the hyphens and commas
