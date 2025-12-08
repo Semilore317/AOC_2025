@@ -22,7 +22,6 @@ public class Laboratories {
 
         activeBeams.add(startCol);
 
-
         for(int i = 0; i < char_grid.size(); i++){
             char[] currentRow =  char_grid.get(i);
             Set<Integer> nextRowBeams = new HashSet<>();
@@ -50,7 +49,6 @@ public class Laboratories {
     }
 
     //section 2
-
     public static long getTotalTimelines(List<char[]> grid) {
         // key = Column Index
         // value = Count of distinct timelines existing at this column
@@ -99,7 +97,7 @@ public class Laboratories {
             }
             activeTimelines = nextRowTimelines;
         }
-        
+
         long totalTimelines = 0;
         for (long count : activeTimelines.values()) {
             totalTimelines += count;
